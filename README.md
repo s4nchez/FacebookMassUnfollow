@@ -1,6 +1,6 @@
 # Facebook mass unfollow
 
-Keep your timeline empty by unfollowing all your friends.
+Small script to unfollow all your Facebook friends.
 
 1. Clone this repo
 

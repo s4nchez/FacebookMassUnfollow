@@ -27,8 +27,9 @@ browser.form(:id, "login_form").submit
 
 puts "Login ok. Retrieving friend list..."
 
-browser.goto('https://developers.facebook.com/tools/debug/accesstoken/')
-token = browser.text_field(:name, "q").value
+browser.goto('https://developers.facebook.com/tools/explorer/')
+Watir::Wait.until { !browser.text_field(:id, "access_token").value.empty? }
+token = browser.text_field(:id, "access_token").value
 
 graph_response = Net::HTTP.get(URI("https://graph.facebook.com/me/friends?access_token=#{token}&fields=id,name"))
 friends_list = JSON.parse graph_response
